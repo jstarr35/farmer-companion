@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of navItems">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <div matListItemTitle>{{item.title}}</div>
+        <div></div>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar [class.mat-elevation-z6]="true" color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Farmer Companion</span>
+      <span class="toolbar-spacer"></span>
+      <button (click)="navigate('/bosses')" mat-icon-button>
+        <mat-icon svgIcon="bosses"></mat-icon>
+      </button>
+      <button (click)="navigate('/inventory')" mat-icon-button>
+        <mat-icon>inventory2</mat-icon>
+      </button>
+      <button (click)="navigate('/settings')" mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+ <!--  <div class="main-container">
+    <div class="navbar-primary">
+      <span class="site-title">Farming Companion</span>
+    </div>
+    <p-scrollPanel [style]="{ width: '100%', height: '100vh' }">
+
+    </p-scrollPanel>
+    <app-actions-dock></app-actions-dock>
+  </div> -->
+
+
+

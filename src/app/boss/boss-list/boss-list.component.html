@@ -1,0 +1,64 @@
+<div class="container">
+  <div *ngIf="this.loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <div *ngIf="this.bosses">
+    <div class="row gap-2 justify-center">
+      <div *ngFor="let boss of this.bosses" class="col-6-lg col-12-xs">
+          <div  class="card">
+              <h3 class="card-header">{{boss.submission.title}}</h3>
+              <div class="card-block">
+                  <div class="card-media-block row">
+                    <div class="row col-6-xs">
+                      <img [src]="boss.submission.thumbnail" class="card-media-image" />
+                      <div class="card-media-description">
+                          <span class="card-media-title"> H{{boss.currentHp}} <sub>/{{boss.maxHp}}</sub> </span>
+                          <span class="card-media-text row">
+                            <div class="star-block">
+                            <span *ngFor="let star of boss.stars | stars">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                                <defs>
+                                  <style>
+                                    .cls-1 {
+                                      fill: url(#linear-gradient);
+                                    }
+
+                                    .cls-2 {
+                                      fill: var(--indigo-500);
+                                    }
+                                  </style>
+                                  <linearGradient id="linear-gradient" x1="0.123" y1="0.214" x2="0.449" y2="1.374" gradientUnits="objectBoundingBox">
+                                    <stop offset="0" stop-color="var(--indigo-200)"/>
+                                    <stop offset="1" stop-color="var(--indigo-400)"/>
+                                  </linearGradient>
+                                </defs>
+                                <g transform="translate(-2 -2)">
+                                  <path id="Polygon_1" data-name="Polygon 1" class="cls-1" d="M9,0l2.25,6.694L18,6.875l-5.359,4.319L14.562,18,9,13.975,3.438,18l1.922-6.806L0,6.875l6.75-.181Z" transform="translate(2 2)"/>
+                                  <path id="Polygon_1_-_Outline" data-name="Polygon 1 - Outline" class="cls-2" d="M9,1.569,7.113,7.184l-5.741.154L5.93,11.012,4.31,16.752,9,13.358l4.69,3.394-1.621-5.74,4.559-3.673-5.741-.154L9,1.569M9,0l2.25,6.694L18,6.875l-5.359,4.319L14.562,18,9,13.975,3.438,18l1.922-6.806L0,6.875l6.75-.181Z" transform="translate(2 2)"/>
+                                </g>
+                              </svg>
+                            </span>
+                          </div>
+
+                           </span>
+
+                      </div>
+                    </div>
+                      <div class="boss-details col-6-xs">
+                        <app-boss-details [boss]="boss"></app-boss-details>
+                      </div>
+                  </div>
+
+                  <div class="card-text">
+                    <app-status [bossId]="boss.submission.id"></app-status>
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <p-button icon="pi pi-external-link" styleClass="p-button-link"></p-button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

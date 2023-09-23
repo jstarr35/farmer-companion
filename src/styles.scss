@@ -1,0 +1,141 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$farmer-companion-primary: mat.define-palette(mat.$indigo-palette);
+$farmer-companion-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$farmer-companion-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$farmer-companion-theme: mat.define-dark-theme((
+  color: (
+    primary: $farmer-companion-primary,
+    accent: $farmer-companion-accent,
+    warn: $farmer-companion-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($farmer-companion-theme);
+
+@import "node_modules/normalize.css/normalize.css";
+@import "resources/breakpoints";
+@import "resources/grid";
+@import "primeicons/primeicons.css";
+
+/* roboto-regular - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-regular.woff2")
+      format("woff2"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-500.woff2") format("woff2"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700 - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-700.woff2") format("woff2"),
+    url("./resources/fonts/roboto-v20-latin-ext_latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  --font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
+    Lucida Grande, sans-serif;
+  --clr-global-borderwidth: 2px;
+  --clr-global-borderradius: 10px;
+  --clr-card-bg-color: #1e1e1e;
+  --clr-card-divider-color: hsl(0, 0%, 22%);
+  --clr-card-title-color: #e2e2e2;
+  --clr-card-title-font-weight: 600;
+  --clr-card-border-width: var(--clr-global-borderwidth);
+  --clr-card-border-radius: 4px;
+  --clr-card-border-color: hsla(0, 0%, 100%, 0.12);
+  --clr-card-box-shadow-color: var(--clr-card-border-color);
+  --clr-card-clickable-border-color: hsl(0, 0%, 15%);
+  --clr-card-clickable-box-shadow-color: var(--clr-card-clickable-border-color);
+  --prime: var(--primary)
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+@import "resources/card";
+
+.navbar-primary .container,
+.navbar-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.navbar-primary {
+  padding: 1rem 2rem;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar-primary .site-title {
+  font-size: 1.5rem;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-filled {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+html, body { height: 100%; background-color: var(--surface-100);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-drawer-container {
+  background-color: var(--surface-100);
+}
+
+.mat-drawer {
+  background-color: var(--surface-f);
+}

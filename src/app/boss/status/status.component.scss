@@ -1,0 +1,87 @@
+@use "sass:math";
+
+.w-2rem {
+  width: 0.5rem;
+}
+
+.h-2rem {
+  height: 0.5rem;
+}
+
+:host ::ng-deep .status-spinner .p-progress-spinner-circle {
+  animation: status-progress-spinner-dash 1.5s ease-in-out infinite, status-progress-spinner-color 5s ease-in-out infinite;
+}
+
+@keyframes status-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #9fa8da;
+      stroke-linecap: butt;
+  }
+  40% {
+      stroke: #9fa8da;
+      stroke-miterlimit: 1;
+  }
+  50% {
+      stroke: #ffa600;
+      stroke-width: 1;
+  }
+  66% {
+      stroke: #9fa8da;
+      stroke-linecap: butt;
+  }
+  80% {
+      stroke: #8794df;
+
+  }
+  90% {
+      stroke: #9fa8da;
+      stroke-linecap: butt;
+  }
+}
+
+@keyframes status-progress-spinner-dash {
+  0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+  }
+  50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+  }
+  100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+  }
+}
+
+.element-container {
+  margin: 0 2px 0 2px;
+}
+
+.status-container {
+  border-top: math.div(var(--clr-card-border-width), 2) solid var(--clr-card-border-color);
+  padding-top: 1rem;
+}
+
+.resists-wrapper {
+  border-left: math.div(var(--clr-card-border-width), 2) solid var(--clr-card-border-color);
+  padding-left: 0.75rem;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8px, 1fr));
+  grid-column-gap: 1.6vw;;
+}
+
+.status-grid > div {
+  padding: .5em;
+  text-align: center;
+}
+
+.status-header {
+  margin: -2px 3px 6px 3px;
+  padding: .5em;
+  border-bottom: 1px solid var(--clr-card-border-color);
+}

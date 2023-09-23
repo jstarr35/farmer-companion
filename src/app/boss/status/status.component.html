@@ -1,0 +1,41 @@
+<div class="status-container row">
+  <div class="status-spinner col-12" *ngIf="this.loading">
+    <p-progressSpinner
+      [style]="{ width: '24px', height: '24px' }"
+      strokeWidth="6"
+      animationDuration=".5s"
+      styleClass="status-spinner"
+    ></p-progressSpinner>
+  </div>
+  <div class="col-6-xs" *ngIf="!this.loading">
+    <div class="status-header">Weaknesses</div>
+   <div class="status-grid">
+
+          <div
+            class="element-container"
+            *ngFor="let weakness of this.weaknesses"
+          >
+            <svg-icon
+              name="{{ weakness }}"
+              [svgStyle]="{ 'width.px': 20 }"
+            ></svg-icon>
+          </div>
+        </div>
+  </div>
+  <div class="col-6-xs" *ngIf="!this.loading">
+
+      <div class="status-header">Resistances</div>
+      <div class="status-grid">
+        <div
+          class="element-container"
+          *ngFor="let resistance of this.resistances"
+        >
+          <svg-icon
+            name="{{ resistance }}"
+            [svgStyle]="{ 'width.px': 20 }"
+          ></svg-icon>
+        </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="row gap-1 justify-center">
+  <div class="info-block">
+    <p-tag severity="danger" value="-{{ boss.maxDmg }}HP">
+      <ng-template pTemplate="icon">
+        <span class="material-symbols-outlined">skull</span>
+      </ng-template>
+    </p-tag>
+  </div>
+  <div class="info-block">
+    <p-tag severity="info" value=" {{ boss.maxGold }}g">
+      <ng-template pTemplate="icon">
+        <svg
+          id="coins"
+          data-name="coins 2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 156.1 154.2"
+        >
+          <defs>
+            <style>
+              .coins_d,
+              .coins_e {
+                stroke-linejoin: round;
+              }
+
+              .coins_d,
+              .coins_e,
+              .coins_f {
+                fill: none;
+                stroke: #000;
+                stroke-linecap: round;
+                stroke-width: 5px;
+              }
+
+              .coins_d,
+              .coins_f {
+                fill-rule: evenodd;
+              }
+
+              .coins_g {
+                stroke-width: 0px;
+              }
+
+              .coins_f {
+                stroke-miterlimit: 10;
+              }
+            </style>
+          </defs>
+          <g id="coins_c" data-name="coins 2">
+            <path
+              class="coins_g"
+              d="m58.6,44.2c70.9.3,70.9,35.8,0,36.1-70.9-.3-70.9-35.8,0-36.1m0-5s0,0,0,0c-17,0-31.5,2.2-41.7,6.1C2.5,50.7.4,58.3.4,62.3c0,4,2.1,11.5,16.5,17,10.2,3.9,24.6,6,41.7,6.1,17.1,0,31.5-2.2,41.7-6.1,14.4-5.5,16.5-13,16.5-17,0-4-2.1-11.5-16.5-17-10.2-3.9-24.6-6-41.7-6.1,0,0,0,0,0,0h0Z"
+            />
+            <path
+              class="coins_e"
+              d="m114.6,64.7v65.3s-4,22.1-56.1,21.7c-52.9-.5-55.9-21.7-55.9-21.7v-65.3,35.2c20.6,20.6,91,20,111.9,2v-37.2Z"
+            />
+            <g>
+              <g>
+                <path
+                  class="coins_d"
+                  d="m132.6,106.2c5.5-.6,18.3-8.4,21-13.7-.3-23.9-.6-46.6-1-70.3"
+                />
+                <path class="coins_d" d="m152.6,61.2c-4.7,4.3-14.3,8.6-21,10" />
+              </g>
+              <path
+                class="coins_f"
+                d="m42.6,22.1c-.9-26.1,110.9-26.1,110,0,0,8.3-13.8,15.4-33.5,18.5"
+              />
+            </g>
+          </g>
+        </svg>
+      </ng-template>
+    </p-tag>
+  </div>
+</div>
